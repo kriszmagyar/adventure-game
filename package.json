@@ -1,0 +1,38 @@
+{
+  "name": "pong",
+  "version": "0.0.1",
+  "description": "A simple game starter template with TS and webpack",
+  "main": "index.js",
+  "scripts": {
+    "start": "webpack-dev-server --port 9000 --inline --progress --profile --colors --watch --content-base src/ --mode development",
+    "build": "webpack --config webpack.config.js --mode production",
+    "build.prod": "webpack --config webpack.config.js -p",
+    "test": "karma start karma.config.js"
+  },
+  "keywords": [
+    "webpack",
+    "webpack4",
+    "typescript"
+  ],
+  "author": "Juri Strumpflohner",
+  "license": "ISC",
+  "devDependencies": {
+    "@types/jasmine": "3.3.9",
+    "@types/node": "11.9.5",
+    "awesome-typescript-loader": "5.2.1",
+    "css-loader": "^2.1.0",
+    "jasmine-core": "3.3.0",
+    "karma": "4.0.0",
+    "karma-jasmine": "2.0.1",
+    "karma-phantomjs-launcher": "1.0.4",
+    "karma-webpack": "3.0.5",
+    "source-map-loader": "0.2.4",
+    "style-loader": "^0.23.1",
+    "tslint": "5.13.0",
+    "tslint-loader": "3.6.0",
+    "typescript": "3.3.3333",
+    "webpack": "4.29.5",
+    "webpack-cli": "3.2.3",
+    "webpack-dev-server": "^3.2.0"
+  }
+}
