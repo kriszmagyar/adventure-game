@@ -40,8 +40,7 @@ class MovingShape implements IMovingShape {
         this.x = ms.x || 0;
         this.y = ms.y || 0;
 
-        this.dx = 0;
-        this.dy = 0;
+        this.dx = this.dy = 0;
         this.speed = ms.speed || 5;
 
         this.width = ms.width || 16;
