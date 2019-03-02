@@ -30,15 +30,16 @@ import './main.css';
     const update = function() {
 
         player.move({
-            up:    controller.keyW,
-            down:  controller.keyS,
-            left:  controller.keyA,
-            right: controller.keyD
+            up:    controller.keys.KeyW.isDown,
+            down:  controller.keys.KeyS.isDown,
+            left:  controller.keys.KeyA.isDown,
+            right: controller.keys.KeyD.isDown
         });
 
-        if (controller.keyEnter) { player.attack(); }
+        if (controller.keys.Enter.isPressed) { player.attack(); }
 
         game.update();
+        controller.update();
     };
 
     const controller =  new Controller();

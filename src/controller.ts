@@ -1,35 +1,29 @@
 class Controller {
 
-    keyW: boolean;
-    keyS: boolean;
-    keyA: boolean;
-    keyD: boolean;
-
-    keyEnter: boolean;
+    keys: {
+        [keyId: string]: KeyInput;
+    };
 
     constructor() {
-        this.keyW = false;
-        this.keyS = false;
-        this.keyA = false;
-        this.keyD = false;
+        this.keys = {};
+        this.add([ 'KeyW', 'KeyS', 'KeyA', 'KeyD', 'Enter' ]);
+    }
 
-        this.keyEnter = false;
+    add(keyIds: string | Array<string>) {
+
+        if (typeof keyIds === 'string') {
+            this.keys[keyIds] = new KeyInput();
+            return;
+        }
+
+        for (let id of keyIds) {
+            this.keys[id] = new KeyInput();
+        }
     }
 
     keyPress(type: string, code: string) {
-
         const isKeyDown = type === 'keydown' ? true : false;
-        const isKeyUp   = type === 'keyup'   ? true : false;
-
-        switch (code) {
-
-            case 'KeyW': this.keyW = isKeyDown; break;
-            case 'KeyS': this.keyS = isKeyDown; break;
-            case 'KeyA': this.keyA = isKeyDown; break;
-            case 'KeyD': this.keyD = isKeyDown; break;
-
-            case 'Enter': this.keyEnter = isKeyDown; break;
-        }
+        this.keys[code].down(isKeyDown);
     }
 
     handleKeyPress(event: KeyboardEvent) {
@@ -37,6 +31,28 @@ class Controller {
         this.keyPress(type, code);
     }
 
+    update() {
+        for (const keyId in this.keys) {
+            this.keys[keyId].isPressed = false;
+        }
+    }
+
+}
+class KeyInput {
+    isDown:   boolean;
+    isPressed: boolean;
+
+    constructor() {
+        this.isDown = this.isPressed = false;
+    }
+
+    down(isDown: boolean) {
+        if (this.isDown !== isDown) {
+            this.isPressed = isDown;
+        }
+
+        this.isDown = isDown;
+    }
 }
 
 export default Controller;
