@@ -11,7 +11,7 @@ class Game {
         this.width = world.width;
         this.height = world.height;
 
-        this.player = new Player();
+        this.player = new Player({ width: 32, height: 32, speed: 10 });
     }
 
     private collideObject(obj: IMovingShape) {

@@ -10,17 +10,18 @@ export interface IMoves {
     right: boolean;
 }
 
-export interface IMovingShape {
+export interface IShape {
     x?: number;
     y?: number;
-
-    dx?:    number;
-    dy?:    number;
-    speed?: number;
 
     width?:  number;
     height?: number;
     color?:  string;
+}
+export interface IMovingShape extends IShape {
+    dx?:    number;
+    dy?:    number;
+    speed?: number;
 }
 
 class MovingShape implements IMovingShape {
