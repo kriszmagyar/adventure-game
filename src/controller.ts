@@ -22,6 +22,9 @@ class Controller {
     }
 
     keyPress(type: string, code: string) {
+
+        if (typeof this.keys[code] === 'undefined') { return; }
+
         const isKeyDown = type === 'keydown' ? true : false;
         this.keys[code].down(isKeyDown);
     }
