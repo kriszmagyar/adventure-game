@@ -4,7 +4,7 @@
   "description": "A simple game starter template with TS and webpack",
   "main": "index.js",
   "scripts": {
-    "start": "webpack-dev-server --port 9000 --inline --progress --profile --colors --watch --content-base src/ --mode development",
+    "start": "webpack-dev-server --port 9000 --inline --profile --colors --watch --content-base src/ --mode development",
     "build": "webpack --config webpack.config.js --mode production",
     "build.prod": "webpack --config webpack.config.js -p",
     "test": "karma start karma.config.js"
