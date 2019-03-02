@@ -6,12 +6,17 @@ class Game {
     height: number;
 
     player: Player;
+    enemies: Array<Enemy>;
 
     constructor(world: IWorld) {
         this.width = world.width;
         this.height = world.height;
 
-        this.player = new Player({ width: 32, height: 32, speed: 10 });
+        this.enemies = [];
+        this.player = new Player({ width: 32, height: 32, speed: 5 });
+        this.enemies.push(
+            new Enemy({ x: 300, y: 300, width: 32, height: 32, color: 'red' })
+        );
     }
 
     private collideObject(obj: IMovingShape) {
@@ -65,6 +70,12 @@ class Player extends Creature {
             this.dx = 0;
         }
 
+    }
+}
+
+class Enemy extends Creature {
+    constructor(ms?: IMovingShape) {
+        super(ms);
     }
 }
 

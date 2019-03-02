@@ -10,9 +10,14 @@ class Display {
         this.buffer = document.createElement('canvas').getContext('2d');
     }
 
-    draw(player: Creature) {
+    draw(player: Creature, enemies: Array<Creature>) {
         this.drawBG('#c3c3c3');
+
         this.drawCreature(player);
+
+        for (const enemy of enemies) {
+            this.drawCreature(enemy);
+        }
     }
 
     private drawBG(color: string) {

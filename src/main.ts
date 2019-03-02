@@ -23,7 +23,7 @@ import './main.css';
     };
 
     const render = function() {
-        display.draw(player);
+        display.draw(player, enemies);
         display.render();
     };
 
@@ -47,7 +47,8 @@ import './main.css';
     const game =        new Game(config.world);
     const engine =      new Engine(render, update);
 
-    const player = game.player;
+    const player =  game.player;
+    const enemies = game.enemies;
 
     window.addEventListener('keydown', controller.handleKeyPress.bind(controller));
     window.addEventListener('keyup',   controller.handleKeyPress.bind(controller));
