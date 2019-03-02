@@ -10,8 +10,9 @@ class Display {
         this.buffer = document.createElement('canvas').getContext('2d');
     }
 
-    draw(player: Creature, enemies: Array<Creature>) {
+    draw(tiles: Array<number>, player: Creature, enemies: Array<Creature>) {
         this.drawBG('#c3c3c3');
+        this.drawTiles(tiles);
 
         this.drawCreature(player);
 
@@ -23,6 +24,16 @@ class Display {
     private drawBG(color: string) {
         this.buffer.fillStyle = color;
         this.buffer.fillRect(0, 0, this.buffer.canvas.width, this.buffer.canvas.height);
+    }
+
+    private drawTiles(tiles: Array<number>) {
+        const numbOfTiles = tiles.length;
+        const sizeOfTile = 16;
+
+        this.buffer.fillStyle = 'green';
+        for (let i = 0; i < numbOfTiles; i += 2) {
+            this.buffer.fillRect(tiles[i], tiles[i + 1], sizeOfTile, sizeOfTile);
+        }
     }
 
     private drawCreature(creature: Creature) {

@@ -8,8 +8,11 @@ import './main.css';
 
     const config = {
         world: {
-            width: 600,
-            height: 600
+            width: 576,
+            height: 576
+        },
+        tile: {
+            size: 16
         }
     };
 
@@ -23,7 +26,7 @@ import './main.css';
     };
 
     const render = function() {
-        display.draw(player, enemies);
+        display.draw(tiles, player, enemies);
         display.render();
     };
 
@@ -47,6 +50,7 @@ import './main.css';
     const game =        new Game(config.world);
     const engine =      new Engine(render, update);
 
+    const tiles =   game.tiles;
     const player =  game.player;
     const enemies = game.enemies;
 

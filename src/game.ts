@@ -5,6 +5,7 @@ class Game {
     width: number;
     height: number;
 
+    tiles: Array<number>;
     player: Player;
     enemies: Array<Enemy>;
 
@@ -12,8 +13,11 @@ class Game {
         this.width = world.width;
         this.height = world.height;
 
-        this.enemies = [];
+        this.tiles = [100, 100, 100, 116, 116, 116, 132, 132, 200, 200, 200, 300, 200, 400];
+
         this.player = new Player();
+
+        this.enemies = [];
         this.enemies.push(
             new Enemy({ x: 300, y: 300, color: 'red' })
         );
