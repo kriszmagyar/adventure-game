@@ -42,7 +42,7 @@ import './main.css';
         controller.update();
     };
 
-    const controller =  new Controller();
+    const controller =  new Controller([ 'KeyW', 'KeyS', 'KeyA', 'KeyD', 'Enter' ]);
     const display =     new Display(document.querySelector('canvas'));
     const game =        new Game(config.world);
     const engine =      new Engine(render, update);

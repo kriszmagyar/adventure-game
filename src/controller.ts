@@ -4,12 +4,12 @@ class Controller {
         [keyId: string]: KeyInput;
     };
 
-    constructor() {
+    constructor(keyIds?: string | Array<string>) {
         this.keys = {};
-        this.add([ 'KeyW', 'KeyS', 'KeyA', 'KeyD', 'Enter' ]);
+        this.add(keyIds);
     }
 
-    add(keyIds: string | Array<string>) {
+    private add(keyIds: string | Array<string>) {
 
         if (typeof keyIds === 'string') {
             this.keys[keyIds] = new KeyInput();
@@ -21,7 +21,7 @@ class Controller {
         }
     }
 
-    keyPress(type: string, code: string) {
+    private keyPress(type: string, code: string) {
 
         if (typeof this.keys[code] === 'undefined') { return; }
 
