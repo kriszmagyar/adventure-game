@@ -44,8 +44,8 @@ class MovingShape implements IMovingShape {
         this.dx = this.dy = 0;
         this.speed = ms.speed || 5;
 
-        this.width = ms.width || 16;
-        this.height = ms.height || 16;
+        this.width = ms.width || 32;
+        this.height = ms.height || 32;
         this.color = ms.color || '#2185d0';
 
     }

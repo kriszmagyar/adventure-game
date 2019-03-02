@@ -13,9 +13,9 @@ class Game {
         this.height = world.height;
 
         this.enemies = [];
-        this.player = new Player({ width: 32, height: 32, speed: 5 });
+        this.player = new Player();
         this.enemies.push(
-            new Enemy({ x: 300, y: 300, width: 32, height: 32, color: 'red' })
+            new Enemy({ x: 300, y: 300, color: 'red' })
         );
     }
 
